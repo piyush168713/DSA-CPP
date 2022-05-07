@@ -3,6 +3,17 @@
 // To prevent the cows from hurting each other, you need to assign the cows to the stalls, 
 // such that the minimum distance between any two of them is as large as possible. Return the largest minimum distance.
 
+// Sample Input
+// 2
+// 3 2
+// 1 2 3
+// 5 2
+// 4 2 1 3 6
+
+// Sample output
+// 2
+// 5
+
 #include<iostream>
 using namespace std;
 
