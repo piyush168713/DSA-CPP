@@ -7,6 +7,17 @@
 // 3. Book allocation should be in a contiguous manner.
 // You have to allocate the book to ‘m’ students such that the maximum number of pages assigned to a student is minimum.
 
+// Sample Input
+// 2
+// 4 2
+// 12 34 67 90
+// 4 4
+// 5 17 100 11
+
+// Sample Output
+// 113
+// 110
+
 #include<iostream>
 using namespace std;
 
