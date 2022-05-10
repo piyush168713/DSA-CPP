@@ -21,6 +21,7 @@
 // In the first test case, we can divide the boards into 2 equal-sized partitions, 
 // so each painter gets 10 units of the board and the total time taken is 10.
 
+
 bool isPossible(vector<int> &boards, int k, int mid){
 	int painterCount = 1;
 	int boardSum = 0;
