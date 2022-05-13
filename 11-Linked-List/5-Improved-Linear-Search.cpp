@@ -38,7 +38,7 @@ void display(Node *p)
 
 Node *improvedSearchMoveToHead(Node *p, int key)
 {
-    Node *q = NULL;
+    Node *q = NULL;      // creating new node for pointing on other node
     while(p != NULL)
     {
         if(key == p->data)
