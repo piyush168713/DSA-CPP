@@ -57,10 +57,10 @@ int deletion(Node *p, int index)
     return -1;
     if (index == 1)
     {
-        q = first;
+        p = first;
         x = first->data;
         first = first->next;
-        delete q;
+        delete p;
         return x;
     }
     else
