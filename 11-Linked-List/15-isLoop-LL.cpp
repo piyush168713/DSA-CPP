@@ -52,16 +52,12 @@ int isLoop(Node *f)
         // q=NULL;
     } while (p && q && p!=q);
 
-
-    
-
     if(p == q)
     return true;      // returns 1 if there is Loop
     else
-    return false;     // returns 0 if there is no Loop or It is Linear
+    return false;     // returns 0 if there is no Loop or it is Linear
     
 }
-
 
 
 int main(){
