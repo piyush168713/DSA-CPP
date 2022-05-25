@@ -53,7 +53,7 @@ void display(Node *p)
     } while (p != Head);
 }
 
-void push(Node *p, int index, int x)
+void push(Node *p, int index, int x)          // push a data at a certain index
 {
     Node *t;
     // if(index < 0 || index > length(p))
@@ -152,12 +152,103 @@ int deletion(Node *p, int pos)
     return x;
 }
 
+void append(Node *p, int x)       // push a data at last node
+{
+    Node *last = new Node;
+    if(Head == NULL)
+    {
+        Head->data = x;
+        Head->next = Head;
+        Head->prev = Head;
+        last = Head;
+    }
+    else
+    {
+        last = Head->prev;
+        Node *t = new Node;
+        t->data = x;
+        t->next = Head;
+        t->prev = last;
+        last->next = t;
+        last = t;
+        Head->prev = last;
+    }
+}
+
+void sortedInsertion(Node *p, int x)          // push a data at a sorted position
+{
+    Node *t = new Node;
+    t->data = x;
+
+    // check if linked list is empty or not
+    if(Head == NULL)
+    {
+        t->next = t;
+        t->prev = t;
+        Head = t;
+    }
+
+    // checking this condtition
+    // because if  length is one 
+    // then p->next == head always and this will
+    // false main condition and didn't 
+    // insert element at last or begin
+    // so we handle this situation differently
+    else if(length(Head) == 1)
+    {
+        t->next = p;
+        t->prev = p;
+        p->prev = t;
+        p->next = t;
+        if(p->data > x)
+        Head = t;
+    }
+    else
+    {
+        Node *q = NULL;
+        while (p->data < x && p->next != Head)
+        {
+            q = p;
+            p = p->next;
+        }
+
+        // this condition when element is inserted at last
+        if(p->data < x)
+        {
+            t->next = p->next;
+            t->prev = p;
+            p->next = t;
+            t->next->prev = t;
+        }
+
+        // condition if element is inserted at the beginning
+        else if(q == NULL)
+        {
+            t->next = p;
+            t->prev = p->prev;
+            p->prev = t;
+            t->prev->next = t;
+            Head = t;
+        }
+
+        // condition when element is inserted at any 
+        // position, neither at last nor at begin
+        else
+        {
+            t->next = p;
+            t->prev = q;
+            p->prev = t;
+            q->next = t;
+        }
+    }
+}
+
 int main(){
 
-    int A[] = {5,7,9,11,15};
-    create(A,5);
-    display(Head);
-    cout<<"\nTotal no. of Node: "<<length(Head)<<endl;
+    // int A[] = {5,7,9,11,15};
+    // create(A,5);
+    // display(Head);
+    // cout<<"\nTotal no. of Node: "<<length(Head)<<endl;
 
     // cout<<endl;
     // push(Head, 0, 100);
@@ -170,8 +261,24 @@ int main(){
     // push(Head,4,20);
     // display(Head);
 
-    cout<<endl;
-    cout<<"Deleted Element is: "<<deletion(Head, 1)<<endl;
+    // cout<<endl;
+    // cout<<"Deleted Element is: "<<deletion(Head, 1)<<endl;
+    // display(Head);
+
+    // cout<<endl;
+    // append(Head, 100);
+    // display(Head);
+
+    // cout<<endl;
+    // sortedInsertion(Head, 2);
+    // display(Head);
+
+
+    sortedInsertion(Head,99);
+    sortedInsertion(Head,13);
+    sortedInsertion(Head,23);
+    sortedInsertion(Head,9);
+    sortedInsertion(Head,12);
     display(Head);
 
     return 0;
