@@ -3,8 +3,7 @@ using namespace std;
 
 int Stack[100];
 
-int n, x;
-// n = size of stack
+int size;
 int top = -1;
 
 void display()
@@ -19,7 +18,7 @@ void display()
 
 void push(int x)
 {
-    if(top == n-1)
+    if(top == size-1)
     {
         cout<<"Stack Overflow\n";
     }
@@ -61,7 +60,7 @@ int peek(int index)
 
 int isFull()
 {
-    if(top == n-1)
+    if(top == size-1)
     return 1;
     else
     return 0;
@@ -91,7 +90,7 @@ int stackTop()
 int main(){
 
     cout<<"Enter the size of stack: ";
-    cin>>n;
+    cin>>size;
 
     push(3);
     push(5);
