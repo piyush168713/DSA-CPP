@@ -18,7 +18,7 @@ int postfixEval(char* postfix)
     for (i = 0; postfix[i] != '\0'; i++)
     {
         if(isOperand(postfix[i]))     // if there is any int value then store else pop int values.
-        stk.push(postfix[i] - '0');   // we used - '0' because the value is stored in stack are ASCII value so we subtract by 0 to get 
+        stk.push(postfix[i] - '0');   // we used - '0' because the value is stored in stack are ASCII value so we subtract by 0 to get actual int value.
         else
         {
             x2 = stk.top();    
@@ -59,3 +59,11 @@ int main(){
     
     return 0;
 }
+
+
+
+
+// Here typecasting isn't work so, we change ASCII value to numeric/integer value by subtracting '0' in our numeric/integer value. 
+// then after pushing into stack both int values changes into ASCII value and after subtracting it gives actual int value.
+// i.e. Integer value = '3' - '0' = 3
+//      ASCII value = 51 - 48 = 3
