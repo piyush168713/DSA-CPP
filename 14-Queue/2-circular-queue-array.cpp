@@ -30,11 +30,11 @@ public:
 
 void Queue :: enqueue(int x)
 {
-    if((rear+1)%size == front)
+    if((rear+1)%size == front)      
         cout<<"Queue is Full\n";
     else
     {
-        rear = (rear+1)%size;
+        rear = (rear+1)%size;       // i.e rear++;
         // rear++;
         Q[rear] = x;
     }
@@ -48,7 +48,7 @@ int Queue :: dequeue()
         else
         {
             // front++;
-            front = (front+1)%size;
+            front = (front+1)%size;     // i.e. front++;
             x = Q[front];
         }
         return x;
