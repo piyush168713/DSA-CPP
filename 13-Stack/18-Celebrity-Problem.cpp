@@ -40,12 +40,13 @@ class Solution
         // code here 
         stack<int> s;
         
-        //
+        // here, n = 3(0, 1, 2)
         for(int i = 0; i<n; i++)
         {
             s.push(i);
         }
         
+        // pop only 2 elements from stack & check conditions for both elements
         while(s.size() > 1)
         {
             int a = s.top();
@@ -63,6 +64,7 @@ class Solution
             }
         }
         
+        // ;astly, single element(ans) is left in stack, then verify it whether it is celebrity or not.
         int ans = s.top();
         
         int zeroCount = 0;
