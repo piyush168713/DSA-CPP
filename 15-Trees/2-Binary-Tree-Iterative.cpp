@@ -86,33 +86,34 @@ void postorder(Node* root){
     }
 
     // create an empty stack and push the root node
-    stack<Node*> s;
-    s.push(root);
+    stack<Node*> s1;
+    s1.push(root);
 
     // create another stack to store postorder traversal
-    stack<int> st;
+    stack<Node*> s2;
 
     // pop a node from the stack and push the data into the output stack
-    while(!s.empty())
+    while(!s1.empty())
     {
-        Node* temp = s.top();
-        s.pop();
+        Node* temp = s1.top();
+        s1.pop();
 
-        st.push(temp->data);
+        s2.push(temp);
         
         // push the left and right child of the popped node into the stack
         if(temp->left)
-        s.push(temp->left);
+        s1.push(temp->left);
 
         if(temp->right)
-        s.push(temp->right);
+        s1.push(temp->right);
         
     }
 
     // print postorder traversal
-    while(!st.empty()){
-        cout<<st.top()<<" ";
-        st.pop();
+    while(!s2.empty()){
+        Node* temp = s2.top();
+        s2.pop();
+        cout<<temp->data<<" ";
     }
 }
 
