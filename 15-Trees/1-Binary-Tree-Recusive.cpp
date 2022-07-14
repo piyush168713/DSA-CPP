@@ -146,16 +146,42 @@ int countTotalNode(Node* root)
     }
 }
 
-void countLeafNode(Node* root, int &count)   // passing the reference of count.
+void countLeafNodeOfDegreeZero(Node* root, int &count)   // passing the reference of count.
 {
     if(root == NULL){
         return;
     }
-    countLeafNode(root->left, count);
+    countLeafNodeOfDegreeZero(root->left, count);
     if(root->left == NULL && root->right == NULL){
         count++;
     }
-    countLeafNode(root->right, count);
+    countLeafNodeOfDegreeZero(root->right, count);
+}
+
+void countLeafNodeOfDegreeOne(Node* root, int &cnt)   // passing the reference of cnt.
+{
+    if(root == NULL){
+        return;
+    }
+
+    countLeafNodeOfDegreeOne(root->left, cnt);
+    if(root->left == NULL && root->right != NULL || root->left != NULL && root->right == NULL){
+        cnt++;
+    }   
+    countLeafNodeOfDegreeOne(root->right, cnt); 
+}
+
+void countLeafNodeOfDegreeTwo(Node* root, int &total)   // passing the reference of total.
+{
+    if(root == NULL){
+        return;
+    }
+
+    countLeafNodeOfDegreeTwo(root->left, total);
+    if(root->left != NULL && root->right != NULL){
+        total++;
+    }   
+    countLeafNodeOfDegreeTwo(root->right, total); 
 }
 
 int heightOfTree(Node* root)
@@ -204,8 +230,16 @@ int main(){
     cout<<"\nTotal no. of Node is: "<<countTotalNode(root);
     
     int count = 0;
-    countLeafNode(root,count);
-    cout<<"\nTotal no. of leaf Node: "<< count;
+    countLeafNodeOfDegreeZero(root,count);
+    cout<<"\nTotal no. of zero leaf Node: "<< count;
+
+    int cnt = 0;
+    countLeafNodeOfDegreeOne(root,cnt);
+    cout<<"\nTotal no. of one leaf Node: "<< cnt;
+
+    int total = 0;
+    countLeafNodeOfDegreeTwo(root,total);
+    cout<<"\nTotal no. of two leaf Node: "<< total;
     
     cout<<"\nHeight of Tree is: "<<heightOfTree(root);
     
