@@ -1,5 +1,3 @@
-// Binary Tree and all traversals implementation 
-
 #include<iostream>
 #include<queue>
 using namespace std;
@@ -20,7 +18,7 @@ class Node{
 // Building tree using Recursive way
 Node* buildTree(Node* root){
 
-    cout<<"Building tree using Recursive way\n";
+    // cout<<"Building tree using Recursive way\n";
     cout<<"Enter the data: ";
     int data;
     cin>>data;
@@ -31,9 +29,9 @@ Node* buildTree(Node* root){
         return NULL;
     }
 
-    cout<<"Enter data for inserting in left: "<<data<<endl;
+    cout<<"Enter data for inserting in left of "<<data<<endl;
     root->left = buildTree(root->left);
-    cout<<"Enter data for inserting in right: "<< data<<endl;
+    cout<<"Enter data for inserting in right of "<< data<<endl;
     root->right = buildTree(root->right);
     return root;
 
@@ -102,6 +100,29 @@ void postorder(Node* root){
     cout<<root->data<<" ";
 }
 
+int countTotalNode(Node* root)
+{
+    int x = 0, y = 0;
+
+    if(root != NULL){
+        x = countTotalNode(root->left);
+        y = countTotalNode(root->right);
+        return x+y+1;
+    }
+}
+
+void countLeafNode(Node* root, int &count)
+{
+    if(root == NULL){
+        return;
+    }
+    countLeafNode(root->left, count);
+    if(root->left == NULL && root->right == NULL){
+        count++;
+    }
+    countLeafNode(root->right, count);
+}
+
 // Building tree using level order traversal
 Node* buildTreeFromLevelOrder(Node* &root)
 {
@@ -141,29 +162,35 @@ Node* buildTreeFromLevelOrder(Node* &root)
 int main(){
     Node* root = NULL;
 
-    // creating a tree
+    // creating a tree using Recursion
     // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
     //         1
     //    3        5
     //  7   11  17   -1
-    // root = buildTree(root);
+    root = buildTree(root);
 
-    // creating a tree
+    // creating a tree using level order
     // 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1
-    buildTreeFromLevelOrder(root);
+    // buildTreeFromLevelOrder(root);
 
-    // level order
+    // Presenting Tree in level order 
     cout<<"\nPrinting the level order traversal: "<<endl;
     levelOrderTraversal(root);
 
-    // cout<<"Inorder Traversal is: ";
-    // inorder(root);
+    cout<<"Inorder Traversal is: ";
+    inorder(root);
 
-    // cout<<"\nPreorder Traversal is: ";
-    // preorder(root);
+    cout<<"\nPreorder Traversal is: ";
+    preorder(root);
     
-    // cout<<"\nPostorder Traversal is: ";
-    // postorder(root);
+    cout<<"\nPostorder Traversal is: ";
+    postorder(root);
+
+    cout<<"\nTotal no. of Node is: "<<countTotalNode(root);
+    
+    int count = 0;
+    countLeafNode(root,count);
+    cout<<"\nTotal no. of leaf Node: "<< count;
     
     return 0;
 }
