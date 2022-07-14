@@ -165,7 +165,9 @@ void countLeafNodeOfDegreeOne(Node* root, int &cnt)   // passing the reference o
     }
 
     countLeafNodeOfDegreeOne(root->left, cnt);
-    if(root->left == NULL && root->right != NULL || root->left != NULL && root->right == NULL){
+    // Both are the same statement....  ^ is exclusive OR symbol
+    // if(root->left == NULL && root->right != NULL || root->left != NULL && root->right == NULL){
+    if(root->left != NULL ^ root->right != NULL){
         cnt++;
     }   
     countLeafNodeOfDegreeOne(root->right, cnt); 
