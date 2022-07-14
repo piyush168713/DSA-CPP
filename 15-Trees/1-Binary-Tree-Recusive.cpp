@@ -158,6 +158,22 @@ void countLeafNode(Node* root, int &count)   // passing the reference of count.
     countLeafNode(root->right, count);
 }
 
+int heightOfTree(Node* root)
+{
+    int x = 0, y = 0;
+    if(root == NULL){
+        return 0;
+    }
+
+    x = heightOfTree(root->left);
+    y = heightOfTree(root->right);
+
+    if(x>y)
+    return x+1;
+    else
+    return y+1;
+}
+
 int main(){
     Node* root = NULL;
 
@@ -190,6 +206,8 @@ int main(){
     int count = 0;
     countLeafNode(root,count);
     cout<<"\nTotal no. of leaf Node: "<< count;
+    
+    cout<<"\nHeight of Tree is: "<<heightOfTree(root);
     
     return 0;
 }
