@@ -204,14 +204,23 @@ int main(){
     Node* root = NULL;
 
     // creating a tree using Recursion
+    // Test case 1
     // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    // OR
     //         1
     //    3        5
     //  7   11  17   -1
+    //
+    // Test Case 2
+    // 8 3 12 -1 4 9 -1 -1 7 -1 -1 -1 5 10 -1 -1 6 2 -1 -1 -1
     root = buildTree(root);
 
     // creating a tree using level order
+    // Test case 1
     // 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1
+    //
+    // Test Case 2
+    // 8 3 5 12 -1 10 6 -1 4 -1 -1 2 -1 9 7 -1 -1 -1 -1 -1 -1
     // buildTreeFromLevelOrder(root);
 
     // Presenting Tree in level order 
