@@ -34,7 +34,42 @@ Node* buildTree(Node* root){
     cout<<"Enter data for inserting in right of "<< data<<endl;
     root->right = buildTree(root->right);
     return root;
+}
 
+// Building tree using level order traversal
+Node* buildTreeFromLevelOrder(Node* &root)
+{
+    queue<Node*> q;
+    cout<<"Building tree using level order traversal:-\n";
+    cout<<"Enter data for root: ";
+    int data;
+    cin>>data;
+    root = new Node(data);
+    q.push(root);
+
+    while(!q.empty())
+    {
+        Node* temp = q.front();
+        q.pop();
+
+        cout<<"Enter left node for: "<<temp->data<<endl;
+        int leftData;
+        cin>>leftData;
+
+        if(leftData != -1){
+            temp->left = new Node(leftData);
+            q.push(temp->left);
+        }
+
+        cout<<"Enter right node for: "<<temp->data<<endl;
+        int rightData;
+        cin>>rightData;
+
+        if(rightData != -1){
+            temp->right = new Node(rightData);
+            q.push(temp->right);
+        }
+    }
 }
 
 // Presenting tree in Level order
@@ -111,7 +146,7 @@ int countTotalNode(Node* root)
     }
 }
 
-void countLeafNode(Node* root, int &count)
+void countLeafNode(Node* root, int &count)   // passing the reference of count.
 {
     if(root == NULL){
         return;
@@ -121,42 +156,6 @@ void countLeafNode(Node* root, int &count)
         count++;
     }
     countLeafNode(root->right, count);
-}
-
-// Building tree using level order traversal
-Node* buildTreeFromLevelOrder(Node* &root)
-{
-    queue<Node*> q;
-    cout<<"Building tree using level order traversal:-\n";
-    cout<<"Enter data for root: ";
-    int data;
-    cin>>data;
-    root = new Node(data);
-    q.push(root);
-
-    while(!q.empty())
-    {
-        Node* temp = q.front();
-        q.pop();
-
-        cout<<"Enter left node for: "<<temp->data<<endl;
-        int leftData;
-        cin>>leftData;
-
-        if(leftData != -1){
-            temp->left = new Node(leftData);
-            q.push(temp->left);
-        }
-
-        cout<<"Enter right node for: "<<temp->data<<endl;
-        int rightData;
-        cin>>rightData;
-
-        if(rightData != -1){
-            temp->right = new Node(rightData);
-            q.push(temp->right);
-        }
-    }
 }
 
 int main(){
