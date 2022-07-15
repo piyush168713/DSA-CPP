@@ -196,10 +196,8 @@ int heightOfTree(Node* root)
     x = heightOfTree(root->left);
     y = heightOfTree(root->right);
 
-    if(x>y)
-    return x+1;
-    else
-    return y+1;
+    int ans = max(x,y) + 1;
+    return ans;
 }
 
 int main(){
