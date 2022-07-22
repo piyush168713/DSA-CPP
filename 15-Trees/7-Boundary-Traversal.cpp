@@ -31,8 +31,8 @@ Expected Time Complexity: O(N).
 Expected Auxiliary Space: O(Height of the Tree).
 
 Constraints:
-1 ≤ Number of nodes ≤ 105
-1 ≤ Data of a node ≤ 105
+1 ≤ Number of nodes ≤ 10^5
+1 ≤ Data of a node ≤ 10^5
 
 */
 
