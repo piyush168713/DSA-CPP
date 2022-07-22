@@ -38,7 +38,7 @@ Expected Auxiliary Space: O(N).
 
  
 Constraints:
-1 <= N <= 104
+1 <= N <= 10^4
 
 */
 
