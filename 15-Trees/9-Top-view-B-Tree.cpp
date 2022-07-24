@@ -10,7 +10,7 @@ Given below is a binary tree. The task is to print the top view of binary tree. 
     /     \
    2       3
   /  \    /   \
-4    5  6   7
+ 4    5   6    7
 
 Top view will be: 4 2 1 3 7
 Note: Return nodes from leftmost node to rightmost node.
