@@ -51,8 +51,8 @@ Expected Time Complexity: O(N).
 Expected Auxiliary Space: O(N).
 
 Constraints:
-1 <= Number of nodes <= 105
-1 <= Data of a node <= 105
+1 <= Number of nodes <= 10^5
+1 <= Data of a node <= 10^5
 
 
 Note: The Input/Output format and Example given are used for the system's internal purpose, and should be used by a user 
