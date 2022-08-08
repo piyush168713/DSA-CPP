@@ -43,10 +43,6 @@ void mergeArrays_1(int arr1[], int arr2[], int n1, int n2 ){
 
 }
 
-
-
-
-
 int main(){
     
     int arr1[] = {1,3,5,7,9};
