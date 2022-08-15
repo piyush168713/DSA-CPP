@@ -116,7 +116,7 @@ Node* maxVal(Node* root)
 
 int Height(Node* root){
         int x, y;
-        if(root == NULL){
+        if(root == NULL || (root->left == NULL && root->right == NULL){
             return 0;
         }
         x = Height(root->left);
