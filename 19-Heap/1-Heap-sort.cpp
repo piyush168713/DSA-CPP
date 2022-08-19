@@ -62,6 +62,7 @@ int main(){
 
     for (int i = 7; i >= 1; i--)
     {
+        // After Deletion, the array will be in sorted order
         // Deleted element uses the free space to store, they must will be arranged in ascending order from the left side.
         cout<<"Deleted element is: "<<Delete(H1, i)<<endl;
     }
