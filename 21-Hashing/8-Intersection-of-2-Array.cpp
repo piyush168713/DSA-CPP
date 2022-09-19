@@ -24,3 +24,28 @@ class Solution {
         return count;
     }
 };
+
+
+
+
+// CodeStudio
+
+#include<unordered_map>
+void intersection(int *input1, int *input2, int size1, int size2)
+{
+    //Write your code here
+    unordered_map<int, int> map;
+    
+    for(int i = 0; i < size2; i++){
+        map[input2[i]]++;
+    }
+    
+    for(int i = 0; i < size1; i++){
+        if(map.count(input1[i])){
+            cout<<input1[i]<<" ";
+            map[input1[i]]--;
+            if(map[input1[i]] == 0)
+                map.erase(input1[i]);
+        }
+    }
+}
