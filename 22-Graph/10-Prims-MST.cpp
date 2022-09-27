@@ -5,7 +5,7 @@
 // Link - https://www.codingninjas.com/codestudio/problems/prim-s-mst_1095633
 
 /*
-    Prim's Algo of Maximum Spanning Tree :- 
+    Prim's Algo of Minimum Spanning Tree :- 
     When you convert a graph into a tree, there is no cycle present &
     Every node is reachable to another node &
     Distance will be minimum b/w each node.
