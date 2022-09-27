@@ -1,8 +1,9 @@
+// Problem Statement
+
 // Detect Cycle In A Directed Graph - CodeStudio
 
 // Link - https://www.codingninjas.com/codestudio/problems/detect-cycle-in-a-directed-graph_1062626
 
-// BFS (Kahn's Algo)
 
 
 // BFS - using kahn's Algo / using algo of topological sort
