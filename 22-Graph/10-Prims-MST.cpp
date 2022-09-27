@@ -4,6 +4,14 @@
 
 // Link - https://www.codingninjas.com/codestudio/problems/prim-s-mst_1095633
 
+/*
+    Prim's Algo of Maximum Spanning Tree :- 
+    When you convert a graph into a tree, there is no cycle present &
+    Every node is reachable to another node &
+    Distance will be minimum b/w each node.
+
+*/
+
 #include <bits/stdc++.h> 
 vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pair<int, int>, int>> &g)
 {
