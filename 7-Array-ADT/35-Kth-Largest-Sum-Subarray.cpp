@@ -13,13 +13,13 @@ int getKthLargest(vector<int> &arr, int k)
         for(int j = i; j < n; j++){
             sum += arr[j];
             
-            if(mini.size() <= k)
+            if(mini.size() < k)
             {
-                mini.push_back(sum);
+                mini.push(sum);
             }
             else
             {
-                if(sum >= mini.top())
+                if(sum > mini.top())
                 {
                     mini.pop();
                     mini.push(sum);
