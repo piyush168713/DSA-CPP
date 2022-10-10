@@ -8,7 +8,7 @@ void solve(int arr[], int s, int e, int x, int &ans){
         ans++;
     }
     solve(arr, mid+1, e, x, ans);
-    solve(arr, s, mid, x, ans);
+    solve(arr, s, mid-1, x, ans);
     return;
 }
 
