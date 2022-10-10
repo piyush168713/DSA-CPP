@@ -12,6 +12,9 @@ int subarrays(vector<int>& arr, int n)
     for(int i = 0; i < n; i++){
         sum += arr[i];
         
+        if(sum == 0)
+            count++;
+        
         if(mp.find(sum) != mp.end()){
             count += mp[sum];
         }
