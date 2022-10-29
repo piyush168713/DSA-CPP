@@ -1,0 +1,47 @@
+// Hamiltonian Path
+
+// https://practice.geeksforgeeks.org/problems/hamiltonian-path2522/1
+
+
+class Solution
+{
+    private:
+    
+    // dfs
+    bool isHamiltonianPathExists(vector<int> adjList[], vector<int> &visited, int cnt, int node, int n)
+    {
+        visited[node] = 1;
+        
+        for(auto &nbr : adjList[node]){
+            if(!visited[nbr]){
+                if(isHamiltonianPathExists(adjList, visited, cnt+1, nbr, n))
+                return true;
+            }
+        }
+        if(cnt == n)
+            return true;
+        visited[node] = 0;
+        return false;
+    }
+    
+    public:
+    bool check(int N,int M,vector<vector<int>> Edges)
+    {
+        // code here
+        // create adj List
+        vector<int> adjList[N+1];
+        for(int i = 0; i < M; i++){
+            adjList[Edges[i][0]].push_back(Edges[i][1]);
+            adjList[Edges[i][1]].push_back(Edges[i][0]);
+        }
+        
+        vector<int> visited(N+1, 0);
+        for(int i = 1; i <= N; i++){
+            if(visited[i] == 0){
+                if(isHamiltonianPathExists(adjList, visited, 1, i, N))
+                return true;
+            }
+        }
+        return false;
+    }
+};
