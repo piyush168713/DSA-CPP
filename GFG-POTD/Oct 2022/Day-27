@@ -1,0 +1,31 @@
+// Print leaf nodes from preorder traversal of BST
+
+// link - https://practice.geeksforgeeks.org/problems/print-leaf-nodes-from-preorder-traversal-of-bst2657/1
+
+class Solution {
+  public:
+  bool solve(int arr[], int &index, int n, int mini, int maxi, vector<int> &ans)
+    {
+        if(index >= n || arr[index] < mini)
+            return false;
+        
+        int val = arr[index];
+        index++;
+        
+        bool left = solve(arr, index, n, mini, val, ans);
+        bool right = solve(arr, index, n, val, maxi, ans);
+        
+        if(!left && !right){
+            ans.push_back(val);
+        }
+        return true;
+    }
+    
+    
+    vector<int> leafNodes(int arr[],int N){
+        vector<int> ans;
+        int idx = 0;
+        bool temp = solve(arr, idx, N, INT_MIN, INT_MAX, ans);
+        return ans;
+    }
+};
