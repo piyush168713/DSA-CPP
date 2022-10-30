@@ -1,0 +1,32 @@
+// The Smurfs
+
+// link - https://practice.geeksforgeeks.org/problems/the-smurfs4201/1
+
+class Solution{
+public:
+    int findMin(int n, char a[]){
+        // code here
+        int red = 0, blue = 0, green = 0;
+        for(int i = 0; i < n; i++){
+            if(a[i] == 'R'){
+                red++;
+            }
+            else if(a[i] == 'B'){
+                blue++;
+            }
+            else{
+                green++;
+            }
+        }
+        
+        if(red == n || blue == n || green == n)
+            return n;
+            
+        if((red%2 == 0 && blue%2 == 0 && green%2 == 0) || (red%2 == 1 && blue%2 == 1 && green%2 == 1)){
+            return 2;
+        }
+        else{
+            return 1;
+        }
+    }
+};
