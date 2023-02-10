@@ -54,8 +54,6 @@ void Diagonal :: display(){
     
 }
 
-//
-
 int main(){
 
     Diagonal d(5);
