@@ -35,12 +35,12 @@ class Solution{
                     l = mid+1;
                 }
                 else{
-                    r = mid-1;
+                    r = mid-1;    // here l > r so, 2nd while loop breaks
                 }
             }
             ans += k/index_val;
             k = k%index_val;
-            r = index-1;
+            r = index-1;       // here, traverse the remaining chocolates.... i.e. l = 0, r = index-1,  and the first loop not breaks if k>0 otherwise first loop will also breaks
         }
         return ans;
     }
