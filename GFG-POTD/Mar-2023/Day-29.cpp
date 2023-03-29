@@ -9,7 +9,7 @@ class Solution
     {
         // code here
         unordered_map<int, int> mp;
-        mp[0] = 1;
+        // mp[0] = 1;
         int sum = 0;
         int ans = 0;
         
@@ -23,6 +23,10 @@ class Solution
             }
             
             sum += val;
+            
+            if(sum == 0){
+                ans++;
+            }
             
             if(mp.find(sum) != mp.end()){
                 ans += mp[sum];
