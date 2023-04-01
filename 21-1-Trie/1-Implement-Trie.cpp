@@ -31,7 +31,7 @@ class TrieNode{
 class Trie {
     TrieNode* root;
 public:
-    /** Initialize your data structure here. */
+    // Initialize your data structure here. 
     Trie() {
         root = new TrieNode('\0');
     }
