@@ -6,7 +6,6 @@ class Solution {
 
   public:
     int noConseBits(int n) {
-        // code here
         int count = 0;
         
         for(int i = 31; i >= 0; i--){
