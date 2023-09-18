@@ -76,23 +76,25 @@ void preorder(TreeNode* root){
     preorder(root->right);
 }
 
+void printLongestPath(std::vector<int> &longPath){
+    for(int val : longPath){
+        std::cout << val << " ";
+    }
+    std::cout << std::endl;
+}
+
 int main() {
-    // vector<int> arr = {4, 2, 6, 1, 3, 5, 7};
+    // vector<int> arr = {4, 2, 6, 1, 3, 5, 7, 8};
     vector<int> arr = {10, 4, 2, 13, 7, 14, 11, 5,6};
     int n = arr.size();
 
     TreeNode* root = arrayToBST(arr, n);
 
-    vector<int> path;
-    vector<int> longPath;
+    vector<int> path, longPath;
     findLongestPath(root, path, longPath);
 
-
     cout << "Longest path elements in the BST: ";
-    for (int val : longPath) {
-        cout << val << " ";
-    }
-    cout << endl;
+    printLongestPath(longPath);
 
     // inorder(root);
     // cout<<endl;
