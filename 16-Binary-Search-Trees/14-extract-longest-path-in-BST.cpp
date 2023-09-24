@@ -4,13 +4,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class TreeNode {
-    public:
+// class TreeNode {
+//     public:
+//     int data;
+//     TreeNode* left;
+//     TreeNode* right;
+
+//     TreeNode(int val) : data(val), left(NULL), right(NULL) {}
+// };
+
+class TreeNode{
+public:
     int data;
     TreeNode* left;
     TreeNode* right;
 
-    TreeNode(int val) : data(val), left(NULL), right(NULL) {}
+    TreeNode(int val){
+        data = val;
+        left = right = NULL;
+    }
 };
 
 TreeNode* insert(TreeNode* root, int val) {
