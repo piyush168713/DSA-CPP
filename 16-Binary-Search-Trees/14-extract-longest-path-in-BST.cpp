@@ -4,15 +4,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// class TreeNode {
-//     public:
-//     int data;
-//     TreeNode* left;
-//     TreeNode* right;
+class TreeNode {
+    public:
+    int data;
+    TreeNode* left;
+    TreeNode* right;
 
-//     TreeNode(int val) : data(val), left(NULL), right(NULL) {}
-// };
+    TreeNode() : data(0), left(NULL), right(NULL) {}
+    TreeNode(int val) : data(val), left(NULL), right(NULL) {}
+    TreeNode(int val, TreeNode* left, TreeNode* right) : data(val), left(left), right(right) {}
+};
 
+/*
 class TreeNode{
 public:
     int data;
@@ -24,6 +27,7 @@ public:
         left = right = NULL;
     }
 };
+*/
 
 TreeNode* insert(TreeNode* root, int val) {
     if (root == NULL) {
@@ -109,9 +113,9 @@ int main() {
     cout << "Longest path elements in the BST: ";
     printLongestPath(longPath);
 
-    // inorder(root);
-    // cout<<endl;
-    // preorder(root);
+    inorder(root);
+    cout<<endl;
+    preorder(root);
 
     return 0;
 }
