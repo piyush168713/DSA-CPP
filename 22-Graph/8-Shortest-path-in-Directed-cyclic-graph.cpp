@@ -1,4 +1,4 @@
-// Shortest Path in Directed Cyclic Graph
+// Shortest Path in Directed Cyclic Weighted Graph
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -7,10 +7,10 @@ class Graph{
 public:
     unordered_map<int, list<pair<int, int>>> adj;
 
-    void addEdge(int u, int v, int weight)
+    // make adj list
+    void addEdge(int u, int v, int wt)
     {
-        pair<int, int> p = make_pair(v,weight);
-        adj[u].push_back(p);
+        adj[u].push_back({v,wt});
     }
 
     // print adj list
@@ -26,15 +26,15 @@ public:
     }
 
     // Topological sort
-    void dfs(int node, unordered_map<int, bool> &visited, stack<int> &s)
+    void topoSort(int node, unordered_map<int, bool> &visited, stack<int> &st)
     {
         visited[node] = 1;
-        for(auto nbr : adj[node]){
-            if(!visited[nbr.first]){
-                dfs(nbr.first, visited, s);
+        for(auto it : adj[node]){
+            if(!visited[it.first]){
+                topoSort(it.first, visited, st);
             }
         }
-        s.push(node);
+        st.push(node);
     }
 
     // make distance vector in which distance from src will be stored
@@ -42,13 +42,15 @@ public:
     {
         dist[src] = 0;
         while(!st.empty()){
-            int top = st.top();
+            int node = st.top();
             st.pop();
 
-            if(dist[top] != INT_MAX){
-                for(auto i : adj[top]){
-                    if(dist[top] + i.second < dist[i.first]){
-                        dist[i.first] = dist[top] + i.second;
+            if(dist[node] != INT_MAX){
+                for(auto i : adj[node]){
+                    int v = i.first;
+                    int wt = i.second;
+                    if(dist[node] + wt < dist[v]){
+                        dist[v] = dist[node] + wt;
                     }
                 }
             }
@@ -77,21 +79,21 @@ int main(){
 
     // topological sort
     unordered_map<int, bool> visited;
-    stack<int> s;
+    stack<int> st;
     for(int i = 0; i < n; i++){
         if(!visited[i]){
-            g.dfs(i, visited, s);
+            g.topoSort(i, visited, st);
         }
     }
 
-    int src = 1;
+    int src = 0;
     vector<int> dist(n);
 
     for(int i = 0; i < n; i++){
         dist[i] = INT_MAX;
     }
 
-    g.getShortestPath(src, dist, s);
+    g.getShortestPath(src, dist, st);
 
     cout<<"\nAnswer is: "<<endl;
 
